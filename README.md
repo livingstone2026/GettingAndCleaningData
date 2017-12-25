@@ -10,9 +10,9 @@ and merge them in one data set
 4) select columns that the names contain 'activity' or 'subject', or 'mean()', or 'std()'
 5) Change activity identifier to descriptive text
 6) Replace "-" with "-" and remove "()" from feature variable names
-7) View the tidy data set and save it as ./[your R working directory]/./data/X_tidy.csv
+7) View the tidy data set and save it as ./[your R working directory]/./data/X_tidy.txt
 8) Calculate the means of each feature for each activity performed by each subject
-9) View the new means file and save it as ./[your R working directory]/data/X_means.csv"
+9) View the new means file and save it as ./[your R working directory]/data/X_means.txt"
 
 The steps are labeled in the script as well:
 
@@ -102,7 +102,7 @@ run_analysis <- function(){
      
      #7) View and save the tidy file
      View(X_selct)
-     write.csv(X_selct, file = "./data/X_tidy.csv")
+     write.table(X_selct, file = "./data/X_tidy.txt",  row.name=FALSE)
 
      
      #8) Calculate means (using dplyr group by & summarise_all, much faster than ver 2)
@@ -113,7 +113,7 @@ run_analysis <- function(){
      
      #9) View and save the new means file
      View(X_means)
-     write.csv(X_means, file = "./data/X_means.csv")
+     write.table(X_means, file = "./data/X_means.txt", row.name=FALSE)
      
      
      #Calculate means - ver 2 (slower, using reshape recast)
@@ -122,6 +122,8 @@ run_analysis <- function(){
      #X_means <-ddply(X_selct, c('activity','subject'), summarise, mean)
           
 }
+
+
 
 
 
