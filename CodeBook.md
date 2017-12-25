@@ -172,17 +172,21 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 Data Tidying
 ============
 1)	Merge the training and the test sets to create one data set.
-    - X_train.txt and X_test.txt are merged in the same file.  Activity identifiers are inserted in the 1st column, 
-      subject identifiers the 2nd column and feature labels the top row; 
+    - X_train.txt and X_test.txt are merged in the same file.  Activity identifiers are inserted as the 1st column, 
+      subject identifiers the 2nd column and feature labels the top row;
+      
 2)	Extract only the measurements on the mean and standard deviation for each measurement.
     - Only feature names that have "std()" or "mean()" are selected
+    
 3)	Use descriptive activity names to name the activities in the data set
     - Replace 1, 2, 3, 4, 5 and 6 activity identifier on the 1st column with 
       walking, walking_upstairs, walking_downstairs, sitting, standing and laying resp.
+      
 4)	Change the feature variable names to a more readable form.
     - replace "-" with "_" and remove "()" from the variable names on the first row.  
     The list of the new feature names is in Appendix 2
     The tidy data set is saved as X_tidy.txt in folder ./[your R working directory]/data/
+    
 5)	From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
     The new data set is saved as X_means.txt in folder ./[your R working directory]/data/
 
