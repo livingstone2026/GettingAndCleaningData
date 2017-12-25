@@ -137,9 +137,9 @@ Data Tidying
 4)	Change the feature variable names to a more readable form.
     - replace "-" with "_" and remove "()" from the variable names on the first row.  
     The list of the new feature names is in Appendix 2
-    The tidy data set is saved as X_tidy.csv in folder ./[your R working directory]/data/
+    The tidy data set is saved as X_tidy.txt in folder ./[your R working directory]/data/
 5)	From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
-    The new data set is saved as X_means.csv in folder ./[your R working directory]/data/
+    The new data set is saved as X_means.txt in folder ./[your R working directory]/data/
 
 
 License:
