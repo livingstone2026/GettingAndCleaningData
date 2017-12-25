@@ -22,9 +22,11 @@ After decompressing the zip file, the data files are stored in the following fol
     (Test set folder)
     
     X_test.txt
-       - 561-feature vector for each activity performed by each volunteer in test set
+       - 561-feature vector for each activity performed by each volunteer in test set.
+       
     y_test.txt
        - each row has the activity identifier for the corresponding row in X_test.txt.
+       
     subject_test.txt 
        - each row has the identifier of the volunteer who performed the activity corresponding to the same row in X_test.txt   
 
@@ -32,9 +34,10 @@ After decompressing the zip file, the data files are stored in the following fol
     (Training set folder)
     
     X_train.txt
-       - 561-feature vector for each activity performed by each volunteer in training set
+       - 561-feature vector for each activity performed by each volunteer in training set.
+       
     y_train.txt
-       - each row has the activity identifier for the corresponding row in training set
+       - each row has the activity identifier for the corresponding row in training set.
     subject_train.txt
        - each row has the identifier number of the volunteer who performed the activity corresponding to the same row in X_train.txt
     
