@@ -85,13 +85,7 @@ run_analysis <- function(){
      #View and save the new means file
      View(X_means)
      write.csv(X_means, file = "./data/X_means.csv")
-     
-     
-     #Calculate means - ver 2 (slower, using reshape recast)
-     #install.packages('reshape2')
-     #require(reshape2)
-     #X_means <-ddply(X_selct, c('activity','subject'), summarise, mean)
-          
+              
 }
 
 
