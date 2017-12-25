@@ -20,6 +20,7 @@ Files Info & Locations
 After decompressing the zip file, the data files are stored in the following folders
 -  ./[your R working directory]/data/UCI HAR Dataset/test/    
     (Test set folder)
+    
     X_test.txt
        - 561-feature vector for each activity performed by each volunteer in test set
     y_test.txt
@@ -29,6 +30,7 @@ After decompressing the zip file, the data files are stored in the following fol
 
 - ./[your R working directory]/data/UCI HAR Dataset/train/    
     (Training set folder)
+    
     X_train.txt
        - 561-feature vector for each activity performed by each volunteer in training set
     y_train.txt
