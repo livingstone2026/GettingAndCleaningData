@@ -18,7 +18,8 @@ The zip file is downloaded from this url "https://d396qusza40orc.cloudfront.net/
 Files Info & Locations
 =================
 After decompressing the zip file, the data files are stored in the following folders
--  ./[your R working directory]/data/UCI HAR Dataset/test/    (Test set folder)
+-  ./[your R working directory]/data/UCI HAR Dataset/test/    
+    (Test set folder)
     X_test.txt
        - 561-feature vector for each activity performed by each volunteer in test set
     y_test.txt
@@ -26,7 +27,8 @@ After decompressing the zip file, the data files are stored in the following fol
     subject_test.txt 
        - each row has the identifier of the volunteer who performed the activity corresponding to the same row in X_test.txt   
 
-- ./[your R working directory]/data/UCI HAR Dataset/train/    (Training set folder)
+- ./[your R working directory]/data/UCI HAR Dataset/train/    
+    (Training set folder)
     X_train.txt
        - 561-feature vector for each activity performed by each volunteer in training set
     y_train.txt
