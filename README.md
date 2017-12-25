@@ -3,6 +3,7 @@ Coursera JH Data Science Course 3 Week 4 Assignment
 1.  R Script
 
 run_analysis <- function(){
+     
      rm(list=ls())
      
      #The name of directory for downloading data.  You may change
