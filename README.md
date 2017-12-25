@@ -73,12 +73,19 @@ run_analysis <- function(){
      #Write the new column names back to X_selct
      names(X_selct) <- nameVec
      
+     #View and save the tidy file
+     View(X_selct)
+     write.csv(X_selct, file = "./data/X_tidy.csv")
 
      #Calculate means (using dplyr group by & summarise_all, much faster than ver 2)
      require(dplyr)
      #remember not to use 'activity' but activity in group_by function
      X_means <- X_selct %>% group_by(activity, subject) %>% summarise_all(funs(mean))
+     
+     #View and save the new means file
      View(X_means)
+     write.csv(X_means, file = "./data/X_means.csv")
+     
      
      #Calculate means - ver 2 (slower, using reshape recast)
      #install.packages('reshape2')
@@ -86,3 +93,6 @@ run_analysis <- function(){
      #X_means <-ddply(X_selct, c('activity','subject'), summarise, mean)
           
 }
+
+
+For more info about the source data and the tidying process, please refer to Code Book
