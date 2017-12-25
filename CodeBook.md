@@ -38,6 +38,7 @@ After decompressing the zip file, the data files are stored in the following fol
        
     y_train.txt
        - each row has the activity identifier for the corresponding row in training set.
+       
     subject_train.txt
        - each row has the identifier number of the volunteer who performed the activity corresponding to the same row in X_train.txt
     
