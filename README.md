@@ -2,6 +2,7 @@
 Coursera JH Data Science Course 3 Week 4 Assignment
 
 This is a summry of what the R script run_analysis.R does:
+0) set project directory
 1) download the zip file from this url https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 2) unzip the file and save in default folders
 3) read the unzipped text files X_train.txt, subject_train.txt, y_train.txt, X_test.txt, subject_test.txt, y_test.txt, features.txt
@@ -16,18 +17,22 @@ and merge them in one data set
 The steps are labeled in the script as well:
 
 run_analysis <- function(){
+     
      rm(list=ls())
      
+     #0) Set project directory
      #The name of directory for downloading data.  You may change
      projDir <- './run_analy'
      
      #check if the directory exists.  If not, create it
      if(!dir.exists(projDir)) {dir.create(projDir)}
      
+     
      #1) Download the zip file
      temp <- paste0(projDir, '/a.zip')
      fileUrl <-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
      download.file(fileUrl, temp)
+     
      
      #2) unzip the file
      unzip(temp, exdir = projDir)
@@ -37,12 +42,10 @@ run_analysis <- function(){
      #X_test.txt, subject_test.txt, y_test.txt, features.txt and merge them in 
      #one data set
      
-     
      #create 3 data directories 
      testDir <- paste0(projDir, '/UCI HAR Dataset/test/')
      trainDir <- paste0(projDir, '/UCI HAR Dataset/train/')
      miscDir <- paste0(projDir, '/UCI HAR Dataset/')
-     
      
      #read X_test txt files, combine subject column and y_test with X_test
      X_file <- paste0(testDir, 'X_test.txt')    
@@ -58,7 +61,6 @@ run_analysis <- function(){
      y_file <- paste0(trainDir,'y_train.txt')
      X_train <- cbind(read.table(y_file),X_train)
      
-     
      #Merge X_test with X_train
      X_comb <- rbind(X_test,X_train)
      
@@ -71,10 +73,12 @@ run_analysis <- function(){
      colnames(X_comb) <- 
      c('activity','subject', make.unique(as.vector(featTitles[,2])))
      
+     
      #4) select column that the names contain 'activity' or 'subject', or 'mean()', or 'std()'
      require(dplyr)
      X_selct <- X_comb %>% 
      dplyr::select(grep('activity|subject|mean\\()|std\\()',names(X_comb)))
+     
      
      #5) Change activity identifier to descriptive text
      #read activity labels file
@@ -86,6 +90,7 @@ run_analysis <- function(){
      #Extract column names 
      nameVec <- names(X_selct)
      
+     
      #6) Replace column names containing '-' with '_' and remove '()'
      nameVec <- gsub('\\-','_',nameVec)
      nameVec <- gsub('\\()','',nameVec) 
@@ -94,14 +99,17 @@ run_analysis <- function(){
      #Write the new column names back to X_selct
      names(X_selct) <- nameVec
      
+     
      #7) View and save the tidy file
      View(X_selct)
      write.csv(X_selct, file = "./data/X_tidy.csv")
 
+     
      #8) Calculate means (using dplyr group by & summarise_all, much faster than ver 2)
      require(dplyr)
      #remember not to use 'activity' but activity in group_by function
      X_means <- X_selct %>% group_by(activity, subject) %>% summarise_all(funs(mean))
+     
      
      #9) View and save the new means file
      View(X_means)
@@ -114,6 +122,7 @@ run_analysis <- function(){
      #X_means <-ddply(X_selct, c('activity','subject'), summarise, mean)
           
 }
+
 
 
 For more info about the source data, please refer to Code Book
