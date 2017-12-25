@@ -84,7 +84,7 @@ run_analysis <- function(){
      
      #7) View and save the tidy file
      View(X_selct)
-     write.csv(X_selct, file = "./data/X_tidy.csv")
+     write.table(X_selct, file = "./data/X_tidy.txt",  row.name=FALSE)
 
      
      #8) Calculate means (using dplyr group by & summarise_all, much faster than ver 2)
@@ -95,7 +95,7 @@ run_analysis <- function(){
      
      #9) View and save the new means file
      View(X_means)
-     write.csv(X_means, file = "./data/X_means.csv")
+     write.table(X_means, file = "./data/X_means.txt", row.name=FALSE)
      
      
      #Calculate means - ver 2 (slower, using reshape recast)
